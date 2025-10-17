@@ -22,23 +22,19 @@ function getUsersNamesInAgeRange(users, gender) {
   // Фильтруем пользователей по указанному полу
   const filteredUsers = users.filter(user => user.gender === gender);
   
-  // Определяем, что выводить в зависимости от условий
-  if (users.length === 0) {
-    return "Средний возраст мужской пустого массива должен быть равен нулю";
-  }
-  
+  // Если пользователей нет, возвращаем 0
   if (filteredUsers.length === 0) {
-    return "Средний возраст несуществующего пола должен быть равен нулю";
+    return 0;
   }
   
-  if (gender === "мужской") {
-    return "Средний возраст мужчин";
-  }
+  // Получаем массив возрастов с помощью map
+  const ages = filteredUsers.map(user => user.age);
   
-  if (gender === "женский") {
-    return "Средний возраст женщин";
-  }
+  // Вычисляем сумму возрастов с помощью reduce
+  const sum = ages.reduce((acc, age) => acc + age, 0);
   
+  // Возвращаем среднее значение
+  return sum / ages.length;
 }
 
 const people = [
@@ -60,6 +56,8 @@ const people = [
 
 console.log(getUsersNamesInAgeRange(people, "мужской")); // 32
 console.log(getUsersNamesInAgeRange(people, "женский")); // 27.4
-console.log(getUsersNamesInAgeRange([], "мужской")); // 0
-console.log(getUsersNamesInAgeRange(people, "несуществующий пол")); // 0
+console.log(getUsersNamesInAgeRange([], "женский")); // 0
+console.log(getUsersNamesInAgeRange(people, "инопланетянин")); // 0
+
+
 
