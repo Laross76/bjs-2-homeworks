@@ -1,25 +1,3 @@
-function Student(name, gender, age) {
-  
-}
-
-Student.prototype.setSubject = function (subjectName) {
-  
-}
-
-Student.prototype.addMarks = function (...marks) {
-  
-}
-
-Student.prototype.getAverage = function () {
-  
-}
-
-Student.prototype.exclude = function (reason) {
-  
-}
-
-
-
 // Функция-конструктор Student
 function Student(name, gender, age) {
   this.name = name;
@@ -57,22 +35,20 @@ Student.prototype.exclude = function(reason) {
 };
 
 // Использование
-let student1 = new Student("Елена", "женский", 18);
+let student1 = new Student("Васелиса", "женский", 19);
+console.log(student1.name)
 student1.setSubject("Algebra");
+console.log(student1.age)
 console.log(student1.getAverage()); // 0
 student1.addMarks(4, 5, 4, 5);
 console.log(student1.getAverage()); // 4.5
 console.log(student1);
 
-let student2 = new Student("Николай", "мужской", 21);
-student2.setSubject("Physics");
+let student2 = new Student("Артём", "мужской", 25);
+student2.setSubject("Geometry");
 student2.exclude('плохая учёба');
 console.log(student2);
+console.log(student2.getAverage());
 
-let student3 = new Student("Андрей", "мужской", 23);
-student3.setSubject("Сhemistry");
-console.log(student3.getAverage()); // 0
-student3.addMarks(3, 4, 3, 4);
-console.log(student3.getAverage()); // 4.5
-console.log(student3);
+
 
